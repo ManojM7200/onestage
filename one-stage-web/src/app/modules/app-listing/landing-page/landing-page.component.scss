@@ -1,0 +1,16 @@
+@import "colors";
+
+.article-tiles{
+    display: flex;
+    justify-content: space-between;
+    column-gap: 5px;
+    padding: 5px;
+}
+.article-quick-link{
+    
+}
+:host{
+    background-color: $bg-green;
+    height: 100%;
+    display: block;
+}

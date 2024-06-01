@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+$bg-green:#41bf80;
+$card-white:#fff3e7;
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined");
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+    font-family: 'GreatVibes';
+    src: url('/assets/fonts/GreatVibes-Regular.ttf');
+  }
+@font-face {
+    font-family: 'Sevillana';
+    src: url('/assets/fonts/Sevillana-Regular.ttf');
+  }

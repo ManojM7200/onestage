@@ -1,0 +1,35 @@
+@import "colors";
+
+.header-block{
+    display: flex;
+    justify-content: space-between;
+    margin: .5rem;
+}
+
+:host ::ng-deep {
+    .header-block{
+        .side-icons{
+            .material-icons{
+                font-size: 1.8rem;
+                height: 1.8rem;
+                width: 1.8rem;
+                color: $header-icon-color;
+            }
+        }
+    }
+    .header-search-input { // add my-custom-component-small class to your mat-form-field element
+        width: 96%;
+        margin: auto;
+        display: block;
+        background: $search-bar-bg-white;
+        border-radius: 3px;
+        .mat-mdc-form-field-infix{
+            min-height: unset;
+            padding: 0.3rem;
+        }
+        .mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align{
+            display: none;
+        }
+      
+    }
+  }

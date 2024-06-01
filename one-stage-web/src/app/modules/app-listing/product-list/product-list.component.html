@@ -1,0 +1,39 @@
+<app-water-based-header title="Water Enterprice" />
+<div class="product-list-container">
+    <mat-card class="product-card">
+        <div class="product-wrap">
+            <img mat-card-image src="assets/images/water_can.png">
+        </div>
+        <mat-card-actions class="actions">
+            <button *ngIf="productCount['watercan'] === undefined"
+                (click)="addProduct('watercan')"
+             mat-flat-button color="primary" class="add-single-btn">
+               Add
+            </button>
+            <button *ngIf="productCount['watercan'] !== undefined" 
+            (click)="removeProduct('watercan')"
+            mat-stroked-button color="primary" class="remove-btn">
+                <mat-icon>remove</mat-icon>
+            </button>
+            <mat-form-field *ngIf="productCount['watercan'] !== undefined"
+             appearance="outline" class="input-field">
+                <input type="text" matInput [value]="productCount['watercan']" disabled>
+            </mat-form-field>
+            <button *ngIf="productCount['watercan'] !== undefined"
+            (click)="addProduct('watercan')"
+             mat-stroked-button color="primary" class="add-btn">
+                <mat-icon>add</mat-icon>
+            </button>
+        </mat-card-actions>
+    
+    </mat-card>
+    
+</div>
+<div class="bottom-action">
+    <div class="btm-btn-wrap" (click)="goto('customer-page')">
+        <button mat-button>Back</button>
+    </div>
+    <div  class="btm-btn-wrap" (click)="goto('order-success')">
+        <button mat-button>Proceed</button>
+    </div>
+</div>
