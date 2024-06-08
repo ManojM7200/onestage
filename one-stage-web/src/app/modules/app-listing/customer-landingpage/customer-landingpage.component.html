@@ -1,39 +1,76 @@
-<app-water-based-header title="Water Enterprice"/>
-<mat-card (click)="goto('product-list')">
-    <mat-card-content>
-        <img src="/assets/svgs/water_bottle_large.svg">
-        Order Water
-    </mat-card-content>
-</mat-card>
-<mat-card >
-    <mat-card-content>
-        <mat-icon>
-            support_agent
-        </mat-icon>
-        Call Agent
-    </mat-card-content>
-</mat-card>
-<mat-card>
-    <mat-card-content>
-        <mat-icon>
-            person_alert
-        </mat-icon>
-        Call delivery person
-    </mat-card-content>
-</mat-card>
-<mat-card>
-    <mat-card-content>
-        <mat-icon>
-            history
-        </mat-icon>
-        history
-    </mat-card-content>
-</mat-card>
-<mat-card (click)="goto('profile')">
-    <mat-card-content>
-        <mat-icon>
-            person_edit
-        </mat-icon>
-        Profile
-    </mat-card-content>
-</mat-card>
+<app-provider-header title="Water Enterprice" />
+<mat-form-field  appearance="outline">
+    <mat-label>Category</mat-label>
+    <mat-select [(ngModel)]="option" >
+      <mat-option value="option1">Option 1</mat-option>
+      <mat-option value="option2">Option 2</mat-option>
+    </mat-select>
+  </mat-form-field>
+<div *ngIf="option===''|| option=='option1'" class="product-list-container">
+    <mat-card class="product-card">
+        <div class="product-wrap">
+            <img mat-card-image src="assets/images/water_can.png">
+        </div>
+        <mat-card-actions class="actions">
+            <button *ngIf="productCount['watercan'] === undefined"
+                (click)="addProduct('watercan')"
+             mat-flat-button color="primary" class="add-single-btn">
+               Add
+            </button>
+            <button *ngIf="productCount['watercan'] !== undefined" 
+            (click)="removeProduct('watercan')"
+            mat-stroked-button color="primary" class="remove-btn">
+                <mat-icon>remove</mat-icon>
+            </button>
+            <mat-form-field *ngIf="productCount['watercan'] !== undefined"
+             appearance="outline" class="input-field">
+                <input type="text" matInput [value]="productCount['watercan']" disabled>
+            </mat-form-field>
+            <button *ngIf="productCount['watercan'] !== undefined"
+            (click)="addProduct('watercan')"
+             mat-stroked-button color="primary" class="add-btn">
+                <mat-icon>add</mat-icon>
+            </button>
+        </mat-card-actions>
+    
+    </mat-card>
+    
+</div>
+<div *ngIf="option=='option2'" class="product-list-container">
+    <mat-card class="product-card">
+        <div class="product-wrap">
+            <img mat-card-image src="assets/images/water_can.png">
+        </div>
+        <mat-card-actions class="actions">
+            <button *ngIf="productCount['watercan'] === undefined"
+                (click)="addProduct('watercan')"
+             mat-flat-button color="primary" class="add-single-btn">
+               Add111
+            </button>
+            <button *ngIf="productCount['watercan'] !== undefined" 
+            (click)="removeProduct('watercan')"
+            mat-stroked-button color="primary" class="remove-btn">
+                <mat-icon>remove</mat-icon>
+            </button>
+            <mat-form-field *ngIf="productCount['watercan'] !== undefined"
+             appearance="outline" class="input-field">
+                <input type="text" matInput [value]="productCount['watercan']" disabled>
+            </mat-form-field>
+            <button *ngIf="productCount['watercan'] !== undefined"
+            (click)="addProduct('watercan')"
+             mat-stroked-button color="primary" class="add-btn">
+                <mat-icon>add</mat-icon>
+            </button>
+        </mat-card-actions>
+    
+    </mat-card>
+    
+</div>
+<div class="bottom-action">
+    <div class="btm-btn-wrap" (click)="goto('landing-page')">
+        <button mat-button>Back{{option}}</button>
+    </div>
+    <div  class="btm-btn-wrap" (click)="goto('order-success')">
+        <button mat-button>Proceed</button>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+.ad-banner-container{
+    height: 120px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    overflow-x: scroll;
+    flex-wrap: wrap;
+    .banner{
+
+        width: 200px;
+        height: 100px;
+        background-color: pink;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+}

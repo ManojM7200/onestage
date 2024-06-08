@@ -6,6 +6,8 @@ import { BottomBarComponent } from './component/bottom-bar/bottom-bar.component'
 import { TopBarComponent } from './component/top-bar/top-bar.component';
 import { LogoComponent } from './component/logo/logo.component';
 import { WaterBasedHeaderComponent } from './component/water-based-header/water-based-header.component';
+import { ProviderHeaderComponent } from './component/provider-header/provider-header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -15,8 +17,10 @@ import { WaterBasedHeaderComponent } from './component/water-based-header/water-
     TopBarComponent,
     LogoComponent,
     WaterBasedHeaderComponent,
+    ProviderHeaderComponent,
   ],
   imports: [
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
@@ -25,7 +29,8 @@ import { WaterBasedHeaderComponent } from './component/water-based-header/water-
   exports:[
     BottomBarComponent,
     TopBarComponent,
-    WaterBasedHeaderComponent
+    WaterBasedHeaderComponent,
+    ProviderHeaderComponent
   ]
 })
 export class SharedModule { }

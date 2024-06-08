@@ -9,9 +9,28 @@ import { Router } from '@angular/router';
 export class CustomerLandingpageComponent {
 
   constructor(private _route:Router){}
-
+  option="";
+  
   public goto(page:string){
-    console.log(page)
     this._route.navigate(["app-list/"+page]);
   }
+
+  productCount:any ={};
+
+  addProduct(name:string){
+    if(!this.productCount[name]){
+      this.productCount[name] = 0;
+    }
+    this.productCount[name]+=1;
+  }
+
+  removeProduct(name:string){
+    if(this.productCount[name] > 1){
+      this.productCount[name]-=1;
+    }else{
+      this.productCount[name] = undefined;
+    }
+  }
+
+  
 }

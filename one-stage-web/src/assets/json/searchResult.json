@@ -1,0 +1,23 @@
+{
+	"status":200,
+	"data":[
+	    {
+            "name":"Kanchi enterprises",
+            "logo":"assets/images/providers/1.png",
+            "id":"kanchi",
+            "link":"app-list/customer-page"
+	    },
+        {
+            "name":"Kamatchi enterprises",
+            "logo":"assets/images/providers/2.png",
+            "id":"kamatchi",
+            "link":"app-list/customer-page"
+	    },
+        {
+            "name":"Vishalatchi enterprises",
+            "logo":"assets/images/providers/3.png",
+            "id":"vishalatchi",
+            "link":"app-list/customer-page"
+	    }
+	]
+}

@@ -9,8 +9,30 @@
 .article-quick-link{
     
 }
-:host{
-    background-color: $bg-green;
-    height: 100%;
-    display: block;
+.favorite-block{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: 10px;
+
+    .favorites{
+        display: flex;
+        justify-content: space-between;
+        width: 150px;
+        border: 1px solid #c2bebe;
+        border-radius: 5px;
+        padding: 10px;
+        background: $favorites-bookmark;
+        .fav-name{
+            margin-left: 10px;
+        }
+
+        .fav-logo-wrap{
+            width: 50px;
+            img{
+                width: 100%;
+            }
+        }
+    }
 }

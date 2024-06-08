@@ -1,11 +1,18 @@
 @import "colors";
 
 .logo-image {
+
     h2 {
       font-family: 'Sevillana';
       font-size: 3.5rem;
       color: $wheat-color;
       margin-bottom: 0;
       margin-top: 0;
+    }
+    width: 10rem;
+    margin-top: 4px;
+    margin-bottom: 5px;
+    img{
+      width: 100%;
     }
   }

@@ -8,6 +8,9 @@ import { CustomerLandingpageComponent } from './customer-landingpage/customer-la
 import { ProductListComponent } from './product-list/product-list.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdBannerComponent } from './ad-banner/ad-banner.component';
+
 
 @NgModule({
   declarations: [
@@ -15,9 +18,12 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     CustomerLandingpageComponent,
     ProductListComponent,
     OrderSuccessComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    AdBannerComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     SharedModule,
     MaterialModule,

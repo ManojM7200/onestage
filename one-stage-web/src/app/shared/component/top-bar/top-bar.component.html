@@ -1,13 +1,24 @@
-<header class="header-block">
-    <app-logo fontSize="1.5rem" />
-    <div class="side-icons">
-        <mat-icon class="material-icons" >notifications</mat-icon>
-        <mat-icon class="material-icons">
-            account_circle
-        </mat-icon>
-    </div>
-</header>
-<mat-form-field appearance="outline" class="header-search-input">
-    <input matInput placeholder="Search">
-    <mat-icon matSuffix>search</mat-icon>
-</mat-form-field>
+<div class="top-bar-container">
+    <header class="header-block">
+        <app-logo fontSize="1.5rem" />
+        <div class="side-icons">
+            <mat-icon class="material-icons" >notifications</mat-icon>
+            <mat-icon class="material-icons">
+                account_circle
+            </mat-icon>
+        </div>
+    </header>
+    <mat-form-field appearance="outline" class="header-search-input"  [matMenuTriggerFor]="menu">
+        <input matInput placeholder="Search"  >
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <mat-menu #menu="matMenu"  yPosition="below">
+        <div mat-menu-item *ngFor="let provider of providers" (click)="addToFav(provider)" >
+            <button mat-flat-button>
+                <mat-icon class="material-icons color_blue">favorite_outlined
+                </mat-icon>
+            </button>
+            <span>{{provider.name}}</span>
+        </div>
+    </mat-menu>
+</div>

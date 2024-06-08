@@ -3,12 +3,14 @@
 .header-block{
     display: flex;
     justify-content: space-between;
-    margin: .5rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
 }
 
 :host ::ng-deep {
     .header-block{
         .side-icons{
+            padding-top: .5rem;
             .material-icons{
                 font-size: 1.8rem;
                 height: 1.8rem;
@@ -22,14 +24,32 @@
         margin: auto;
         display: block;
         background: $search-bar-bg-white;
-        border-radius: 3px;
+        border-radius: 8px;
         .mat-mdc-form-field-infix{
             min-height: unset;
-            padding: 0.3rem;
+            padding: 0.5rem;
         }
         .mat-mdc-form-field-subscript-wrapper.mat-mdc-form-field-bottom-align{
             display: none;
         }
       
+    }
+  }
+  .top-bar-container{
+    background-color: $top-bar-color;
+    height: 10rem;
+    border-radius: 0 0 10% 10%;
+  }
+
+  :host::ng-deep{
+    .mat-mdc-menu-panel{
+        max-width: none;
+        width: 98vw;
+    }
+    .serach-list-logo-wrap{
+        width: 50px;
+        img{
+            width: 100%;
+        }
     }
   }

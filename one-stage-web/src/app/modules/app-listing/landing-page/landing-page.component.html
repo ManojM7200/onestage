@@ -1,41 +1,12 @@
 <app-top-bar fontSize="1.5rem" />
-<article class="article-tiles">
-    <mat-card>
-        <mat-card-content>
-            <mat-icon>water_drop</mat-icon>
-        </mat-card-content>
-    </mat-card>
-    <mat-card>
-        <mat-card-content>
-            <mat-icon>water</mat-icon>
-        </mat-card-content>
-    </mat-card>
-    <mat-card>
-        <mat-card-content>
-            <mat-icon>local_drink</mat-icon>
-        </mat-card-content>
-    </mat-card>
-    <mat-card>
-        <mat-card-content>
-            <mat-icon>water_drop</mat-icon>
-        </mat-card-content>
-    </mat-card>
-    <mat-card>
-        <mat-card-content>
-            <mat-icon>water</mat-icon>
-        </mat-card-content>
-    </mat-card>
-    <mat-card>
-        <mat-card-content>
-            <mat-icon>water</mat-icon>
-        </mat-card-content>
-    </mat-card>
-</article>
-<article class="article-quick-link">
-    <mat-card>
-        <mat-card-content>
-            <mat-card-subtitle>Quick links</mat-card-subtitle>
-        </mat-card-content>
-    </mat-card>
-</article>
+<app-ad-banner />
+<div class="favorite-block">
+    <div *ngFor="let favorite of favorites" class="favorites" (click)="goto(favorite.link)">
+        <div class="fav-logo-wrap">
+            <img [src]="favorite.logo" />
+        </div>
+        <span class="fav-name">{{favorite.name}}</span>
+        <mat-icon>bookmark</mat-icon>
+    </div>
+</div>
 <app-bottom-bar />
