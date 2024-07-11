@@ -5,114 +5,97 @@
  * @format
  */
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import React, { useState } from 'react';
+import { MyWebComponent } from './WebView';
+import { Button, TextInput, ToastAndroid, View } from 'react-native';
+// import RNUpiPayment from 'react-native-upi-payment';
+import uuid from 'react-native-uuid';
+import { NativeModules } from 'react-native';
+import App1 from './App1';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+  const [payableAmount,setPayableAmount] = useState('1');
+  const config =  {
+    upiId: 'mnjmuthuraj-1@okicici',
+    name: "Manoj",
+    note: 'Test payment',
+    amount: '1',
+  }
+  const onSuccess = (success:any) => {
+    ToastAndroid.show('payment success!', ToastAndroid.SHORT);
+    console.log({success})
+    return success;
+  }
+  const onFailure = (error: any) => {
+    ToastAndroid.show('payment failed!', ToastAndroid.SHORT);
+    console.log({error})
+    return error;
+  }
+  const payUPI = (vpa: string,payeeName: string,transactionRef: string)=>{
+    NativeModules.UpiPaymentModule.initiatePayment(config,onSuccess,onFailure);
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+    // OneUpi.initiate(
+    //   config,
+    //   onSuccess,
+    //   onFailure,
+    // )
+    // RNUpiPayment.initializePayment(
+    //   {
+    //     vpa, // or can be john@ybl or mobileNo@upi
+    //     payeeName,
+    //     amount: payableAmount,
+    //     transactionRef
+    //   },
+    //   ()=>{
+    //     ToastAndroid.show('payment success!', ToastAndroid.SHORT);
+    //   },
+    //   (failed: any)=>{
+    //     console.log(failed)
+    //     ToastAndroid.show('payment failed!', ToastAndroid.SHORT);
+    //   }
+    // );
+  }
+
+  const payUPI1 = ()=>{
+    const uuid4 = uuid.v4();
+    payUPI('mnjmuthuraj-1@okicici','Manoj M',uuid4 as string);
+  }
+  const payUPI2 = ()=>{
+    const uuid4 = uuid.v4();
+    config.upiId = 'shree.aswin@okicici';
+    config.name = 'Shreedhar';
+
+    payUPI('shree.aswin@okicici','Shreedhar',uuid4 as string);
+  }
+  const payUPI3 = ()=>{
+    const uuid4 = uuid.v4();
+    payUPI('dhanashreevenkatesan24-1@okaxis','Dhanashree',uuid4 as string);
+  }
+  // const payUPI4 = ()=>{
+  //   const uuid4 = uuid.v4();
+  //   payUPI('dhanashreevenkatesan24-1@okaxis','Dhanashree',uuid4 as string);
+  // }
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
+    <View style={{flex:1}}>
+      <MyWebComponent />
+      {/* <View>
+        <TextInput onChangeText={setPayableAmount} value={payableAmount} keyboardType='decimal-pad' />
+        <Button title='Pay to Manoj' onPress={payUPI1} />
+        <Button title='Pay to Sridhar' onPress={payUPI2} />
+        <Button title='Pay to Dhanashree' onPress={payUPI3} />
+      </View> */}
+      <App1 />
+      <View>
+        <Button
+            title="Pay now"
+            onPress={payUPI2}
+          /> 
+      </View>
+    </View>
+    )
 }
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;

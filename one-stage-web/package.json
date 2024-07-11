@@ -6,6 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "build-on-url": "ng build  --deploy-url one-stage-web/",
+    "build-on-url1": "ng build  --output-path=\"dist/one-stage-web\" --deploy-url=\"one-stage-web/\"",
     "test": "ng test"
   },
   "private": true,

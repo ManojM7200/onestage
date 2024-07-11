@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1074939695458",
+    "firebase_url": "https://one-stage-ff87c-default-rtdb.firebaseio.com",
+    "project_id": "one-stage-ff87c",
+    "storage_bucket": "one-stage-ff87c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074939695458:android:2a35714ed1e6d6d1f61c3b",
+        "android_client_info": {
+          "package_name": "com.onestageapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeiRVaHUAjAKg6oV3GXNjveBnRg86_N3M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
